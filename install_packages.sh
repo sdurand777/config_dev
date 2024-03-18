@@ -110,10 +110,25 @@ echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS PYTHON -----------
 # cp -r /home/ivm/install_slam/.ssh/ ~/
 # installer docker
 sudo apt install docker -y
-sudo apt install nvidia-docker2 -y
+
+# Docker & Nvidia-docker
+curl https://get.docker.com | sh \
+  && sudo systemctl --now enable docker
+
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+      && curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+      && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
+            sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+            sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+sudo apt-get install -y nvidia-docker2
+
+#sudo apt install nvidia-docker2 -y
 # add docker to sudo
 sudo groupadd docker
 sudo usermod -aG docker ivm
+# Restart docker service
+sudo systemctl restart docker
+
 echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS DOCKER ----------------" >> /home/ivm/install_log
 
 # # inserer disque 2
