@@ -121,6 +121,7 @@ distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
             sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
             sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
 sudo apt-get update
+sudo apt update
 sudo ldconfig
 sudo apt-get install -y nvidia-docker2
 
