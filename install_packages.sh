@@ -17,11 +17,58 @@ sudo apt install mesa-utils -y
 #sudo apt install qt5-default -y
 sudo apt install python3 -y
 sudo apt install python3-pip -y
+sudo apt install python3-venv -y
 sudo apt install python-is-python3 -y
-sudo apt install neovim -y
+
 sudo apt install htop -y
 sudo apt install qtbase5-dev qt5-qmake -y
 echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION PACKAGES LINUX ----------------" >> /home/ivm/install_log
+
+# installer packages pour neovim
+sudo apt install vim -y
+sudo apt install vim-gtk3 -y
+
+# neovim
+RUN git clone https://github.com/neovim/neovim /tmp/neovim 
+WORKDIR /tmp/neovim 
+RUN git checkout stable 
+
+RUN apt install gettext -y
+
+RUN make CMAKE_BUILD_TYPE=RelWithDebInfo 
+RUN make install
+
+# node
+sudo apt install nodejs npm -y
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+sudo n latest
+
+# cmake
+RUN apt install -y libssl-dev
+# RUN git clone https://github.com/Kitware/CMake.git ~/cmake
+# RUN cd ~/cmake
+# RUN ./bootstrap && make -j6 && sudo make install
+RUN apt install cmake -y
+
+# autres libs
+sudo apt install ripgrep -y
+sudo apt install fd-find -y
+sudo apt install latexmk texlive-full -y
+sudo apt install git -y
+
+sudo apt install curl -y
+sudo apt install xclip -y
+
+pip install pynvim
+pip install numpy
+npm install -g neovim
+
+sudo apt install clang -y
+sudo apt install clangd -y
+
+
 
 # installer driver nvidia
 sudo apt install $(nvidia-detector) -y
