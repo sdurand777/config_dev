@@ -28,15 +28,22 @@ echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION PACKAGES LINUX ---------
 sudo apt install vim -y
 sudo apt install vim-gtk3 -y
 
+# cmake
+sudo apt install -y libssl-dev
+# git clone https://github.com/Kitware/CMake.git ~/cmake
+# cd ~/cmake
+# ./bootstrap && make -j6 && sudo make install
+sudo apt install cmake -y
+
 # neovim
-RUN git clone https://github.com/neovim/neovim /tmp/neovim 
-WORKDIR /tmp/neovim 
-RUN git checkout stable 
+git clone https://github.com/neovim/neovim /tmp/neovim 
+cd /tmp/neovim 
+git checkout stable 
 
-RUN apt install gettext -y
+sudo apt install gettext -y
 
-RUN make CMAKE_BUILD_TYPE=RelWithDebInfo 
-RUN make install
+make CMAKE_BUILD_TYPE=RelWithDebInfo 
+sudo make install
 
 # node
 sudo apt install nodejs npm -y
@@ -44,13 +51,6 @@ sudo npm cache clean -f
 sudo npm install -g n
 sudo n stable
 sudo n latest
-
-# cmake
-RUN apt install -y libssl-dev
-# RUN git clone https://github.com/Kitware/CMake.git ~/cmake
-# RUN cd ~/cmake
-# RUN ./bootstrap && make -j6 && sudo make install
-RUN apt install cmake -y
 
 # autres libs
 sudo apt install ripgrep -y
@@ -75,7 +75,7 @@ cp -r ~/confif_dev/submodules/nvim ~/.config/nvim
 sudo apt install $(nvidia-detector) -y
 
 # installer nvidia cuda toolkit nvcc
-sudo apt install nvidia-cuda-toolkit
+sudo apt install nvidia-cuda-toolkit -y
 
 echo 'export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}'
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}'
