@@ -1,6 +1,8 @@
 [submodule "submodules/nvim"]
+    branch = main
 	path = submodules/nvim
 	url = git@github.com:sdurand777/config_neovim.git
 [submodule "submodules/bashrc"]
+    branch = main
 	path = submodules/bashrc
 	url = git@github.com:sdurand777/config_bashrc.git

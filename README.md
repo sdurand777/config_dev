@@ -6,3 +6,6 @@ Attention il faut que les deux submodules soient aussi publics pour les pull fac
 # recuperation des deux submodules
 git_init_submodule submodules/nvim https://github.com/sdurand777/config_neovim.git
 git_init_submodule submodules/bashrc https://github.com/sdurand777/config_bashrc.git
+
+# attention definir a la racine de repot principal dans le fichier .gitmodules ajouter
+branch = main
