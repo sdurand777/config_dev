@@ -3,4 +3,4 @@
 	url = https://github.com/sdurand777/config_neovim.git
 [submodule "submodules/bashrc"]
 	path = submodules/bashrc
-	url = https://github.com/sdurand777/config_bashrc.git
+	url = git@github.com:sdurand777/config_bashrc.git
