@@ -100,23 +100,22 @@ echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS NVIDIA -----------
 
 
 
-# # installer des packages python
-# pip install pyside2
-# pip install opencv-python
-# pip install tqdm
-# echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS PYTHON ----------------" >> /home/ivm/install_log
-#
+# installer des packages python
+pip install pyside2
+pip install opencv-python
+pip install tqdm
+echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS PYTHON ----------------" >> /home/ivm/install_log
+
 # # installer les cles ssh
 # cp -r /home/ivm/install_slam/.ssh/ ~/
-# # installer docker
-# sudo apt install docker -y
-# sudo apt install nvidia-docker2 -y
-# # add docker to sudo
-# sudo groupadd docker
-# sudo usermod -aG docker ivm
-#
-# echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS DOCKER ----------------" >> /home/ivm/install_log
-#
+# installer docker
+sudo apt install docker -y
+sudo apt install nvidia-docker2 -y
+# add docker to sudo
+sudo groupadd docker
+sudo usermod -aG docker ivm
+echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS DOCKER ----------------" >> /home/ivm/install_log
+
 # # inserer disque 2
 # SCRIPT="/home/ivm/install_slam/install_disque_2.sh"
 # echo "@reboot $SCRIPT >> /home/ivm/install_log 2>&1" | crontab -
