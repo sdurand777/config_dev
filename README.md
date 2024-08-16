@@ -12,3 +12,8 @@ branch = main
 
 # Les fichiers install.sh et install_packages.sh 
 ces fichiers permettent une installation sur une machine ubuntu 22.04 vide on va avoir un reboot auto pour installation des drivers cuda automatique install.sh lance automatiquement install_packages.sh pour une installation complete
+
+# gestion versioning
+git clone --recursive pour avoir les fichiers des submodules pour pouvoir les modifier si besoin
+
+Dans le dossier config_dev en premier lancer la commande custom git_pull_all pour mettre a jour les submodules si il y a eu des modifs
