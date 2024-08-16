@@ -18,7 +18,14 @@ git clone --recursive pour avoir les fichiers des submodules pour pouvoir les mo
 
 Dans le dossier config_dev en premier lancer la commande custom git_pull_all pour mettre a jour les submodules si il y a eu des modifs
 
+Il vaut mieux mettre a jour/ modifier config_bashrc et config_neovim en dehors de config_dev puis mettre a jour config_dev avec git_pull_all 
+
+
+# ------------------ PAS CONSEILLE PAS ADAPTE
 # mettre a jour bashrc depuis le dossier submodules
+
+mettre a jour le fichier .gitmodules pour les ssh au lieu des https
+
 aller dans le dossier submodules/bashrc 
 
 faire git log verifier HEAD -> main sinon git checkout main pour attacher la HEAD au main
@@ -28,3 +35,7 @@ git commit -am "update"
 git push
 
 attention le repo est ok mais si on clone config_dev on a pas la derniere version du submodule pour propager il faut aller dans le dossier config_dev et utiliser la commande custom git_pull_all git_push_all
+
+
+# Nota Bene
+Pour docker il faut changer le fichier .gitmodules et utiliser les https plutot que ssh sinon problem de autentification
