@@ -17,3 +17,14 @@ ces fichiers permettent une installation sur une machine ubuntu 22.04 vide on va
 git clone --recursive pour avoir les fichiers des submodules pour pouvoir les modifier si besoin
 
 Dans le dossier config_dev en premier lancer la commande custom git_pull_all pour mettre a jour les submodules si il y a eu des modifs
+
+# mettre a jour bashrc depuis le dossier submodules
+aller dans le dossier submodules/bashrc 
+
+faire git log verifier HEAD -> main sinon git checkout main pour attacher la HEAD au main
+
+git add .
+git commit -am "update"
+git push
+
+attention le repo est ok mais si on clone config_dev on a pas la derniere version du submodule pour propager il faut aller dans le dossier config_dev et utiliser la commande custom git_pull_all git_push_all
