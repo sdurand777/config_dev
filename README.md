@@ -9,3 +9,6 @@ git_init_submodule submodules/bashrc https://github.com/sdurand777/config_bashrc
 
 # attention definir a la racine de repot principal dans le fichier .gitmodules ajouter
 branch = main
+
+# Les fichiers install.sh et install_packages.sh 
+ces fichiers permettent une installation sur une machine ubuntu 22.04 vide on va avoir un reboot auto pour installation des drivers cuda automatique install.sh lance automatiquement install_packages.sh pour une installation complete
