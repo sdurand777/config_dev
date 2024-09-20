@@ -76,7 +76,9 @@ cp -r ~/confif_dev/submodules/nvim ~/.config/nvim
 
 echo 'source ~/.config/nvim/snippets.bashrc' >> ~/.bashrc
 
-
+# --------------------
+# install default cuda
+# --------------------
 # installer driver nvidia
 sudo apt install $(nvidia-detector) -y
 
@@ -88,20 +90,6 @@ echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRA
 
 echo 'export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
-
-
-
-
-# wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
-# sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
-# sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub -y
-# sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /" -y
-# sudo apt-get update -y 
-# # installing CUDA-11.3
-# sudo apt install cuda-toolkit-11-3 -y
-# setup your paths
-# echo 'export PATH=/usr/local/cuda-11.3/bin:$PATH' >> ~/.bashrc
-# echo 'export LD_LIBRARY_PATH=/usr/local/cuda-11.3/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
 
 
 source ~/.bashrc
@@ -116,9 +104,6 @@ pip install opencv-python
 pip install tqdm
 echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS PYTHON ----------------" >> /home/ivm/install_log
 
-# # installer les cles ssh
-# cp -r /home/ivm/install_slam/.ssh/ ~/
-# installer docker
 sudo apt install docker -y
 
 # Docker & Nvidia-docker
@@ -144,13 +129,8 @@ sudo systemctl restart docker
 
 echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS DOCKER ----------------" >> /home/ivm/install_log
 
-# # inserer disque 2
-# SCRIPT="/home/ivm/install_slam/install_disque_2.sh"
-# echo "@reboot $SCRIPT >> /home/ivm/install_log 2>&1" | crontab -
-
 echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION DISQUE 1 ----------------" >> /home/ivm/install_log
 
-#
 # nettoyer le crontab
 echo "" | crontab -
 
