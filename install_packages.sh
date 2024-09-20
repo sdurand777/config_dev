@@ -2,7 +2,11 @@
 
 # attente
 echo "$(date +'%Y-%m-%d %H:%M:%S') ---------- ATTENTE ------------" >> /home/ivm/install_log
-sleep 10
+sleep 3
+
+# update repo et submodules
+git pull
+git submodule update --remote --merge
 
 # mettre a jour
 sudo apt update
@@ -70,6 +74,8 @@ sudo apt install clangd -y
 
 cp -r ~/confif_dev/submodules/nvim ~/.config/nvim
 
+echo 'source ~/.config/nvim/snippets.bashrc' >> ~/.bashrc
+
 
 # installer driver nvidia
 sudo apt install $(nvidia-detector) -y
@@ -79,6 +85,10 @@ sudo apt install nvidia-cuda-toolkit -y
 
 echo 'export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}'
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}'
+
+echo 'export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
+
 
 
 
