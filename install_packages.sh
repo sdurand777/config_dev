@@ -72,7 +72,7 @@ npm install -g neovim
 sudo apt install clang -y
 sudo apt install clangd -y
 
-cp -r ~/confif_dev/submodules/nvim ~/.config/nvim
+cp -r ~/config_dev/submodules/nvim ~/.config/nvim
 
 echo 'source ~/.config/nvim/snippets.bashrc' >> ~/.bashrc
 
