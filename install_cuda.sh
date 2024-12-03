@@ -45,7 +45,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 echo "Installation de CUDA..."
-sudo apt install -y cuda
+sudo apt install -y cuda-12-1
 if [[ $? -ne 0 ]]; then
     echo "Échec de l'installation de CUDA."
     exit 1
