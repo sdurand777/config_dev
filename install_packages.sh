@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # attente
-echo "$(date +'%Y-%m-%d %H:%M:%S') ---------- ATTENTE ------------" >> /home/ivm/install_log
+echo "$(date +'%Y-%m-%d %H:%M:%S') ---------- ATTENTE ------------" >> $HOME/install_log
 sleep 3
 
 # update repo et submodules
@@ -26,7 +26,7 @@ sudo apt install python-is-python3 -y
 
 sudo apt install htop -y
 sudo apt install qtbase5-dev qt5-qmake -y
-echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION PACKAGES LINUX ----------------" >> /home/ivm/install_log
+echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION PACKAGES LINUX ----------------" >> $HOME/install_log
 
 # installer packages pour neovim
 sudo apt install vim -y
@@ -94,7 +94,7 @@ echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRA
 
 source ~/.bashrc
 sudo ldconfig
-echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS NVIDIA ----------------" >> /home/ivm/install_log
+echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS NVIDIA ----------------" >> $HOME/install_log
 
 
 
@@ -102,7 +102,7 @@ echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS NVIDIA -----------
 pip install pyside2
 pip install opencv-python
 pip install tqdm
-echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS PYTHON ----------------" >> /home/ivm/install_log
+echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS PYTHON ----------------" >> $HOME/install_log
 
 sudo apt install docker -y
 
@@ -123,13 +123,13 @@ sudo apt-get install -y nvidia-docker2
 #sudo apt install nvidia-docker2 -y
 # add docker to sudo
 sudo groupadd docker
-sudo usermod -aG docker ivm
+sudo usermod -aG docker $USER
 # Restart docker service
 sudo systemctl restart docker
 
-echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS DOCKER ----------------" >> /home/ivm/install_log
+echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION UTILS DOCKER ----------------" >> $HOME/install_log
 
-echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION DISQUE 1 ----------------" >> /home/ivm/install_log
+echo "$(date +'%Y-%m-%d %H:%M:%S') ------- INSTALLATION DISQUE 1 ----------------" >> $HOME/install_log
 
 # nettoyer le crontab
 echo "" | crontab -
